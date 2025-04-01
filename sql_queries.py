@@ -20,8 +20,7 @@ TASK_2_QUERY = "SELECT flight_no, COUNT(*) AS count FROM flights GROUP BY flight
 #  PG0310    |    27
 # Вывести число перелетов внутри одной таймзоны
 # Нужно вывести 1 значение в колонке count
-TASK_3_QUERY = "SELECT COUNT(*) AS count FROM flights f JOIN airports a1 ON f.departure_airport = a1.airport_code JOIN airports a2 ON f.arrival_airport = a2.airport_code WHERE a1.timezone = a2.timezone"
-
+TASK_3_QUERY = "SELECT COUNT(*) AS count FROM flights f JOIN Airports a1 ON f.departure_airport = a1.airport_code JOIN Airports a2 ON f.arrival_airport = a2.airport_code WHERE a1.timezone = a2.timezone"
 #  count
 # --------
 #  16824
