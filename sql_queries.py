@@ -9,8 +9,6 @@ TASK_1_QUERY = "SELECT flight_no, (scheduled_arrival - scheduled_departure) AS d
 #  PG0233    | 00:25:00
 #  PG0235    | 00:25:00
 #  PG0234    | 00:25:00
-
-
 # Вывести топ 3 рейса по числу упоминаний в таблице flights
 # количество упоминаний которых меньше 50
 # В ответе должно быть 2 колонки [flight_no, count]
@@ -20,7 +18,6 @@ TASK_2_QUERY = "SELECT flight_no, COUNT(*) AS count FROM flights GROUP BY flight
 #  PG0260    |    27
 #  PG0371    |    27
 #  PG0310    |    27
-
 # Вывести число перелетов внутри одной таймзоны
 # Нужно вывести 1 значение в колонке count
 TASK_3_QUERY = "SELECT COUNT(*) AS count FROM flights WHERE origin_timezone = destination_timezone"
