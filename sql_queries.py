@@ -1,7 +1,7 @@
 # Вывести топ 5 самых коротких по длительности перелетов.
 # Duration - разница между scheduled_arrival и scheduled_departure.
 # В ответе должно быть 2 колонки [flight_no, duration]
-TASK_1_QUERY = "SELECT flight_no, TIMESTAMPDIFF(MINUTE, scheduled_departure, scheduled_arrival) AS duration FROM flights ORDER BY duration ASC LIMIT 5"
+TASK_1_QUERY = "SELECT flight_no, (scheduled_arrival - scheduled_departure) AS duration FROM flights ORDER BY duration LIMIT 5"
 """
 #  flight_no | duration
 # -----------+----------
@@ -15,7 +15,7 @@ TASK_1_QUERY = "SELECT flight_no, TIMESTAMPDIFF(MINUTE, scheduled_departure, sch
 # Вывести топ 3 рейса по числу упоминаний в таблице flights
 # количество упоминаний которых меньше 50
 # В ответе должно быть 2 колонки [flight_no, count]
-TASK_2_QUERY = "SELECT flight_no, COUNT(*) AS count FROM flights GROUP BY flight_no HAVING count < 50 ORDER BY count DESC LIMIT 3"
+TASK_2_QUERY = "SELECT flight_no, COUNT(*) AS count FROM flights GROUP BY flight_no HAVING COUNT(*) < 50 ORDER BY count DESC LIMIT 3"
 """
 #  flight_no | count
 # -----------+-------
@@ -25,7 +25,7 @@ TASK_2_QUERY = "SELECT flight_no, COUNT(*) AS count FROM flights GROUP BY flight
 
 # Вывести число перелетов внутри одной таймзоны
 # Нужно вывести 1 значение в колонке count
-TASK_3_QUERY = "SELECT COUNT(*) AS count FROM flights WHERE TIMEZONE(scheduled_departure) = TIMEZONE(scheduled_arrival)"
+TASK_3_QUERY = "SELECT COUNT(*) AS count FROM flights WHERE origin_timezone = destination_timezone"
 """
 #  count
 # --------
